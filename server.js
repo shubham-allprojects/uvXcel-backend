@@ -25,12 +25,6 @@ app.use("/", require("./routes/userRoutes"));
 
 const PORT = process.env.PORT || 10255;
 
-app.use(express.static(path.join(__dirname, "../build")));
-
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "../build/index.html"));
-});
-
 app.listen(PORT, function () {
   console.log(`server running on port ${PORT}`);
 });
