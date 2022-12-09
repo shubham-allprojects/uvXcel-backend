@@ -17,7 +17,7 @@ router.post("/save_data", (req, res) => {
 
 router.get("/get-users", async (req, res) => {
   const allUsers = await UserData.find();
-  res.send(allUsers);
+  res.send(allUsers.reverse());
 });
 
 router.get("/get-current-user/:id", async (req, res) => {
