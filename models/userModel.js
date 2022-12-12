@@ -6,6 +6,7 @@ const userSchema = {
   mobile: String,
   topic: String,
   helptext: String,
+  dateAdded: String,
 };
 
 const UserData = mongoose.model("user", userSchema);
