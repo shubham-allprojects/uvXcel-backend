@@ -8,7 +8,7 @@ const currentMonth = new Date().getMonth() + 1;
 
 const currentDay = new Date().getDate();
 
-const together = [currentYear, currentMonth, currentDay].join("/");
+const together = [currentDay, currentYear, currentMonth].join("/");
 
 // Route-1 add job details
 router.post("/add-job", async (req, res) => {
