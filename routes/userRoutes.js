@@ -2,7 +2,13 @@ const express = require("express");
 const router = express.Router();
 const UserData = require("../models/userModel");
 
-const userAddedDate = new Date();
+const currentYear = new Date().getFullYear();
+
+const currentMonth = new Date().getMonth() + 1;
+
+const currentDay = new Date().getDate();
+
+const userAddedDate = [currentYear, currentMonth, currentDay].join("/");
 
 router.post("/save_data", (req, res) => {
   const { name, email, mobile, topic, helptext } = req.body;
