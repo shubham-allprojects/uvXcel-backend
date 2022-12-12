@@ -8,7 +8,7 @@ const currentMonth = new Date().getMonth() + 1;
 
 const currentDay = new Date().getDate();
 
-const userAddedDate = [currentYear, currentMonth, currentDay].join("/");
+const userAddedDate = [currentDay, currentYear, currentMonth].join("/");
 
 router.post("/save_data", (req, res) => {
   const { name, email, mobile, topic, helptext } = req.body;
