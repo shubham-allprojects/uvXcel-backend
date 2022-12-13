@@ -21,7 +21,6 @@ mongoose
   .catch(console.error);
 
 app.use("/", require("./routes/jobRoutes"));
-// app.use("/", require("./routes/subscriberRoutes"));
 app.use("/", require("./routes/userRoutes"));
 // app.use("/", require("./routes/resourceRoutes"));
 
