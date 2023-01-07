@@ -54,9 +54,9 @@ router.post("/save_data", async (req, res) => {
   res.send({ newUser });
 });
 
-router.get("/get-users", async (res) => {
+router.get("/get-users", async (req, res) => {
   const allUsers = await UserData.find();
-  res.send(allUsers);
+  res.send(allUsers.reverse());
 });
 
 router.get("/get-current-user/:id", async (req, res) => {
