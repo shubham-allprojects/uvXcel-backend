@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const UserData = require("../models/userModel");
-// var nodemailer = require("nodemailer");
+var nodemailer = require("nodemailer");
 
 const currentYear = new Date().getFullYear();
 
@@ -23,7 +23,7 @@ router.post("/save_data", async (req, res) => {
   });
 
   newUser.save();
-
+  // For Office365
   // var transporter = nodemailer.createTransport({
   //   service: "hotmail",
   //   host: "smtp.office365.com",
@@ -31,8 +31,8 @@ router.post("/save_data", async (req, res) => {
   //   secureConnection: true,
   //   tls: { ciphers: "SSLv3" },
   //   auth: {
-  //     user: "shubhamp@uvxcel.com", // generated ethereal user
-  //     pass: "", // generated ethereal password
+  //     user: "shubhamp@uvxcel.com",
+  //     pass: "",
   //   },
   // });
 
@@ -50,6 +50,33 @@ router.post("/save_data", async (req, res) => {
   //     console.log("Email sent");
   //   }
   // });
+
+  // For Gmail
+  var transporter = nodemailer.createTransport({
+    service: "gmail",
+    host: "smtp.gmail.com",
+    port: 465,
+    secureConnection: true,
+    auth: {
+      user: "hanumantparab1958@gmail.com",
+      pass: "icgfrsfnibfnpykq",
+    },
+  });
+
+  var mailOptions = {
+    from: "hanumantparab1958@gmail.com",
+    to: "parab16aug@gmail.com",
+    subject: "Enquiry From uvXcel Website",
+    html: `<b>From: </b>${email} <br> <b>Topic: </b>${topic}<br> <b>Message: </b>${helptext} <br> <b>Contact Number: </b>${mobile}<br> <b>Enquiry Date: </b>${userAddedDate}`,
+  };
+
+  transporter.sendMail(mailOptions, function (error) {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log("Email sent");
+    }
+  });
 
   res.send({ newUser });
 });
