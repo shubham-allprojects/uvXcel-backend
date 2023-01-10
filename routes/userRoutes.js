@@ -51,33 +51,6 @@ router.post("/save_data", async (req, res) => {
   //   }
   // });
 
-  // For Gmail
-  var transporter = nodemailer.createTransport({
-    service: "gmail",
-    host: "smtp.gmail.com",
-    port: 465,
-    secureConnection: true,
-    auth: {
-      user: "hanumantparab1958@gmail.com",
-      pass: "icgfrsfnibfnpykq",
-    },
-  });
-
-  var mailOptions = {
-    from: "hanumantparab1958@gmail.com",
-    to: "parab16aug@gmail.com",
-    subject: "Enquiry From uvXcel Website",
-    html: `<b>From: </b>${email} <br> <b>Topic: </b>${topic}<br> <b>Message: </b>${helptext} <br> <b>Contact Number: </b>${mobile}<br> <b>Enquiry Date: </b>${userAddedDate}`,
-  };
-
-  transporter.sendMail(mailOptions, function (error) {
-    if (error) {
-      console.log(error);
-    } else {
-      console.log("Email sent");
-    }
-  });
-
   res.send({ newUser });
 });
 
