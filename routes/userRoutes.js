@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const UserData = require("../models/userModel");
-var nodemailer = require("nodemailer");
+// var nodemailer = require("nodemailer");
 
 const currentYear = new Date().getFullYear();
 
