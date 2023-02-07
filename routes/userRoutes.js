@@ -47,7 +47,7 @@ router.post("/save_data", async (req, res) => {
   //   to: "marketing@uvxcel.com",
   //   cc: "chanchalkumarg@uvxcel.com",
   //   subject: "Enquiry From uvXcel Website",
-  //   html: `<b>From: </b>${email} <br> <b>Topic: </b>${topic}<br> <b>Message: </b>${helptext} <br> <b>Contact Number: </b>${mobile}<br> <b>Enquiry Date: </b>${dateToSentOnEmail}`,
+  //   html: `<b>Topic: </b>${topic}<br><br> <b>Message: </b>${helptext}<br><br><b>Contact Number: </b>${mobile}<br><br><b>Email: </b>${email}<br><br><b>Enquiry Date: </b>${dateToSentOnEmail}`,
   // };
 
   // transporter.sendMail(mailOptions, function (error) {
