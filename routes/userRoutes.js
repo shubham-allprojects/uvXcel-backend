@@ -3,13 +3,19 @@ const router = express.Router();
 const UserData = require("../models/userModel");
 // var nodemailer = require("nodemailer");
 
-const currentYear = new Date().getFullYear();
-
-const currentMonth = new Date().getMonth() + 1;
-
-const currentDay = new Date().getDate();
+const date = new Date();
+const currentYear = date.getFullYear();
+const currentMonth = date.getMonth() + 1;
+const currentDay = date.getDate();
 
 const userAddedDate = [currentDay, currentMonth, currentYear].join("/");
+const dateToSentOnEmail = [
+  currentDay,
+  date.toLocaleString("default", { month: "long" }),
+  currentYear,
+].join("-");
+
+console.log(dateToSentOnEmail);
 
 router.post("/save_data", async (req, res) => {
   const { name, email, mobile, topic, helptext } = req.body;
@@ -31,16 +37,17 @@ router.post("/save_data", async (req, res) => {
   //   secureConnection: true,
   //   tls: { ciphers: "SSLv3" },
   //   auth: {
-  //     user: "shubhamp@uvxcel.com",
+  //     user: "testuser@uvxcel.in",
   //     pass: "",
   //   },
   // });
 
   // var mailOptions = {
-  //   from: "shubhamp@uvxcel.com",
-  //   to: "parab16aug@gmail.com",
+  //   from: "testuser@uvxcel.in",
+  //   to: "marketing@uvxcel.com",
+  //   cc: "chanchalkumarg@uvxcel.com",
   //   subject: "Enquiry From uvXcel Website",
-  //   html: `<b>From: </b>${email} <br> <b>Topic: </b>${topic}<br> <b>Message: </b>${helptext} <br> <b>Contact Number: </b>${mobile}<br> <b>Enquiry Date: </b>${userAddedDate}`,
+  //   html: `<b>From: </b>${email} <br> <b>Topic: </b>${topic}<br> <b>Message: </b>${helptext} <br> <b>Contact Number: </b>${mobile}<br> <b>Enquiry Date: </b>${dateToSentOnEmail}`,
   // };
 
   // transporter.sendMail(mailOptions, function (error) {
