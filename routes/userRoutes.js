@@ -33,26 +33,25 @@ router.post("/save_data", async (req, res) => {
   var transporter = nodemailer.createTransport({
     service: "hotmail",
     host: "smtp.office365.com",
-    port: 465,
+    port: 587,
     secureConnection: true,
     tls: { ciphers: "SSLv3" },
     auth: {
       user: "testuser@uvxcel.com",
-      pass: "ch4ShuGh3P1a",
+      pass: "ssvrfsskdzzwssfy",
     },
   });
 
   var mailOptions = {
     from: "testuser@uvxcel.com",
-    to: "shubhamp@uvxcel.com",
-    // cc: "chanchalkumarg@uvxcel.com",
+    to: ["chanchalkumarg@uvxcel.com", "marketing@uvxcel.com"],
     subject: "Enquiry From uvXcel Website",
     html: `<b>Topic: </b>${topic}<br><br> <b>Message: </b>${helptext}<br><br><b>Contact Number: </b>${mobile}<br><br><b>Email: </b>${email}<br><br><b>Enquiry Date: </b>${dateToSentOnEmail}`,
   };
 
   transporter.sendMail(mailOptions, function (error) {
     if (error) {
-      console.log(error);
+      console.log("Error:", error);
     } else {
       console.log("Email sent");
     }
