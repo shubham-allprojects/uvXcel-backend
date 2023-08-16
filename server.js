@@ -20,7 +20,7 @@ mongoose
   .then(() => console.log("Connected to Azure cosmos db"))
   .catch(console.error);
 
-app.use("/", require("./routes/jobRoutes"));
+// app.use("/", require("./routes/jobRoutes"));
 app.use("/", require("./routes/userRoutes"));
 // app.use("/", require("./routes/resourceRoutes"));
 
