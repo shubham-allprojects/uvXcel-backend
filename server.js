@@ -15,7 +15,7 @@ mongoose
 
 app.use("/", require("./routes/userRoutes"));
 
-const PORT = process.env.PORT || 10255;
+const PORT = 10255;
 
 app.listen(PORT, function () {
   console.log(`server running on port ${PORT}`);
