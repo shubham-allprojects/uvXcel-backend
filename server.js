@@ -7,7 +7,7 @@ const cors = require("cors");
 app.use(cors());
 
 mongoose
-  .connect(process.env['AZURE_URI'], {
+  .connect(process.env.AZURE_URI, {
     useNewUrlParser: true,
   })
   .then(() => console.log("Connected to Azure cosmos db"))
@@ -15,7 +15,7 @@ mongoose
 
 app.use("/", require("./routes/userRoutes"));
 
-const PORT = 10255;
+const PORT = process.env.PORT || 10255;
 
 app.listen(PORT, function () {
   console.log(`server running on port ${PORT}`);
