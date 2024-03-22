@@ -1,5 +1,5 @@
-const path = require("path");
-require("dotenv").config({ path: path.resolve(__dirname, "./.env") });
+// const path = require("path");
+// require("dotenv").config({ path: path.resolve(__dirname, "./.env") });
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
@@ -7,7 +7,7 @@ const cors = require("cors");
 app.use(cors());
 
 mongoose
-  .connect(process.env.AZURE_URI, {
+  .connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
   })
   .then(() => console.log("Connected to Azure cosmos db"))
